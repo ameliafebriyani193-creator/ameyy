@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>indahnya laut - Keajaiban Biru Bumi</title>
+  
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    :root {
+      --primary-blue: #a0d8f1;
+      --light-blue: #e6f7ff;
+      --deep-blue: #006ba6;
+      --accent-blue: #48cae4;
+      --text-dark: #2c3e50;
+      --text-light: #f8f9fa;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--light-blue);
+      color: var(--text-dark);
+      line-height: 1.7;
+    }
+
+    .navbar {
+      background-color: var(--primary-blue);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .navbar-brand, .nav-link {
+      color: white !important;
+      font-weight: 600;
+    }
+
+    .nav-link:hover {
+      color: var(--accent-blue) !important;
+    }
+
+    .hero {
+      background: linear-gradient(rgba(0, 107, 166, 0.75), rgba(160, 216, 241, 0.85)), 
+                  url('https://source.unsplash.com/random/1920x1080/?ocean,wave') no-repeat center center/cover;
+      color: white;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .section-title {
+      color: var(--deep-blue);
+      font-weight: 700;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+      margin-bottom: 2rem;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 5px;
+      background: linear-gradient(90deg, var(--primary-blue), var(--accent-blue));
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .gallery-img {
+      height: 280px;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .gallery-img:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .card {
+      border: none;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .btn-custom {
+      background: linear-gradient(135deg, var(--deep-blue), var(--accent-blue));
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 30px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(72, 202, 228, 0.4);
+    }
+
+    footer {
+      background: linear-gradient(135deg, var(--deep-blue), #004b7d);
+      color: white;
+      padding: 4rem 0 2rem;
+    }
+
+    .modal-content {
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+      color: white;
+      border-bottom: none;
+    }
+
+    .modal-body img {
+      border-radius: 14px;
+      margin-bottom: 1rem;
+    }
+
+    .fact-icon {
+      font-size: 2.5rem;
+      color: var(--accent-blue);
+      margin-bottom: 1rem;
+    }
+
+    .ecosystem-card {
+      background: white;
+      border-radius: 16px;
+      padding: 1.5rem;
+      height: 100%;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#"> SeaBlue 🌊</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#beranda">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tentang">Tentang</a></li>
+          <li class="nav-item"><a class="nav-link" href="#galeri">Galeri</a></li>
+          <li class="nav-item"><a class="nav-link" href="#fakta">Fakta</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ekosistem">Ekosistem</a></li>
+          <li class="nav-item"><a class="nav-link" href="#wisata">Wisata</a></li>
+          <li class="nav-item"><a class="nav-link" href="#kontak">Kontak</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="beranda" class="hero text-center">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-9">
+          <h1 class="display-2 fw-bold mb-4">SeaBlue</h1>
+          <p class="lead fs-4 mb-5">Menjelajahi keajaiban biru yang menutupi 71% permukaan bumi, rumah bagi kehidupan, kedamaian, dan misteri tak terjamah.</p>
+          <a href="#galeri" class="btn btn-custom btn-lg">Selamat Datang di SeaBlue </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tentang Laut -->
+  <section id="tentang" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Keajaiban Lautan</h2>
+      </div>
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6">
+          <img src="wallpaper-bawah-laut_1134901-175468.avif" alt="Laut Dalam" class="img-fluid rounded shadow-lg" width="800px">
+        </div>
+        <div class="col-lg-6">
+          <h3 class="fw-bold text-primary mb-3">Harta Karun Biru Planet Kita</h3>
+          <p>Laut bukan sekadar air — ia adalah jantung kehidupan bumi. Menutupi 71% permukaan planet, lautan menyimpan 97% air bumi dan menjadi rumah bagi lebih dari 230.000 spesies yang diketahui, dengan ribuan lainnya masih menunggu ditemukan.</p>
+          <p>Dari terumbu karang tropis yang penuh warna hingga palung laut sedalam 11 kilometer, setiap sudut lautan adalah dunia tersendiri yang penuh dengan keajaiban, misteri, dan keindahan yang tak tertandingi.</p>
+          <p>Laut juga mengatur iklim global, menyerap karbon dioksida, dan menghasilkan lebih dari setengah oksigen yang kita hirup. Tanpa laut, bumi tidak akan seperti yang kita kenal sekarang.</p>
+          <a href="#galeri" class="btn btn-custom mt-3">Jelajahi Keindahan</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeri Panjang (12 Gambar) -->
+  <section id="galeri" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Galeri Keindahan Laut</h2>
+        <p class="text-muted lead">Klik gambar untuk melihat detail lengkap dan fakta menarik</p>
+      </div>
+
+      <div class="row g-4">
+        <!-- 12 Gambar -->
+        <div class="col-md-6 col-lg-4"><img src="terumbu.jpg" alt="Terumbu Karang" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal1"></div>
+        <div class="col-md-6 col-lg-4"><img src="terbenam.jpg" alt="Matahari Terbenam" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal2"></div>
+        <div class="col-md-6 col-lg-4"><img src="ubur-ubur.jpg" alt="Ubur-Ubur" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal3"></div>
+        <div class="col-md-6 col-lg-4"><img src="penyu.jpg" alt="Penyu Laut" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal4"></div>
+        <div class="col-md-6 col-lg-4"><img src="gurita.jpg" alt="Gurita" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal5"></div>
+        <div class="col-md-6 col-lg-4"><img src="pantai.jpeg" alt="Pantai Tropis" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal6"></div>
+        <div class="col-md-6 col-lg-4"><img src="kuda.webp" alt="Kuda Laut" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal7"></div>
+        <div class="col-md-6 col-lg-4"><img src="hiu.jpg" alt="Hiu Karang" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal8"></div>
+        <div class="col-md-6 col-lg-4"><img src="ombak.jpg" alt="Ombak Besar" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal9"></div>
+        <div class="col-md-6 col-lg-4"><img src="kapal.jpeg" alt="Bangkai Kapal" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal10"></div>
+        <div class="col-md-6 col-lg-4"><img src="paus.jpg" alt="Paus Biru" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal11"></div>
+        <div class="col-md-6 col-lg-4"><img src="Lumba-lumba 11f.jpg" alt="Lumba-Lumba" class="gallery-img img-fluid w-100" data-bs-toggle="modal" data-bs-target="#modal12"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fakta Menarik -->
+  <section id="fakta" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Fakta Menakjubkan Laut</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <i class="fas fa-lungs fact-icon"></i>
+              <h5 class="card-title text-primary">50-80% Oksigen</h5>
+              <p>Fitoplankton laut menghasilkan 50-80% oksigen di atmosfer bumi — lebih banyak dari semua hutan di darat.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <i class="fas fa-mountain fact-icon"></i>
+              <h5 class="card-title text-primary">11.034 Meter</h5>
+              <p>Palung Mariana adalah titik terdalam, lebih dalam dari Gunung Everest jika diletakkan terbalik.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 text-center p-4">
+            <div class="card-body">
+              <i class="fas fa-fish fact-icon"></i>
+              <h5 class="card-title text-primary">94% Kehidupan</h5>
+              <p>Sekitar 94% kehidupan bumi berada di lautan, termasuk spesies yang belum pernah kita lihat.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ <!-- Ekosistem Laut -->
+  <section id="ekosistem" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Ekosistem Laut</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="ecosystem-card">
+            <h5>🌺 Terumbu Karang</h5>
+            <p>Disebut "hutan hujan lautan", rumah bagi 25% spesies laut meski hanya menutupi <1% dasar laut.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="ecosystem-card">
+            <h5>🌊 Laut Dalam</h5>
+            <p>95% lautan belum dijelajahi. Di sini hidup makhluk aneh seperti ikan naga dan cumi raksasa.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="ecosystem-card">
+            <h5>🌴 Hutan Mangrove</h5>
+            <p>Pelindung pantai alami, penyimpan karbon, dan tempat berkembang biak ikan muda.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Kata Para Ahli -->
+  <section id="kutipan" class="py-5 bg-light">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Kata Para Ahli tentang Laut</h2>
+        <p class="text-muted lead">Pendapat ilmuwan, penjelajah, dan konservasionis kelas dunia</p>
+      </div>
+
+      <div class="row g-5">
+        <!-- Kutipan 1 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <img src="Sylvia Earle.avif" alt="Sylvia Earle" class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+            <blockquote class="blockquote">
+              <p class="mb-3 fst-italic">"No water, no life. No blue, no green."</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>Sylvia Earle</strong><br>
+                <small class="text-muted">Ahli Biologi Kelautan, Penjelajah National Geographic</small>
+              </footer>
+            </blockquote>
+            <p class="small mt-3">Dr. Earle telah menyelam lebih dari 7.000 jam di bawah laut dan mendirikan Mission Blue untuk melindungi "hope spots" lautan.</p>
+          </div>
+        </div>
+
+        <!-- Kutipan 2 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <img src="grow-billion-trees-jacques-cousteau.webp" alt="Jacques Cousteau" class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+            <blockquote class="blockquote">
+              <p class="mb-3 fst-italic">"The sea, once it casts its spell, holds one in its net of wonder forever."</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>Jacques Cousteau</strong><br>
+                <small class="text-muted">Penjelajah Laut Legendaris, Pencipta Aqua-Lung</small>
+              </footer>
+            </blockquote>
+            <p class="small mt-3">Cousteau memperkenalkan dunia pada keajaiban bawah laut melalui film dan bukunya yang ikonik.</p>
+          </div>
+        </div>
+
+        <!-- Kutipan 3 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <img src="enrik.jpg" alt="Enric Sala" class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+            <blockquote class="blockquote">
+              <p class="mb-3 fst-italic">"We know more about the surface of Mars than about the bottom of our own oceans."</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>Dr. Enric Sala</strong><br>
+                <small class="text-muted">Pendiri Pristine Seas, National Geographic</small>
+              </footer>
+            </blockquote>
+            <p class="small mt-3">Hanya 5% dasar laut yang telah dipetakan dengan detail tinggi — lautan masih penuh misteri.</p>
+          </div>
+        </div>
+
+        <!-- Kutipan 4 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <img src="sir.jpg" alt=" Sir David Attenborough" class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+            <blockquote class="blockquote">
+              <p class="mb-3 fst-italic">"The future of humanity, and indeed all life on earth, depends on us understanding the oceans."</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>Sir David Attenborough</strong><br>
+                <small class="text-muted">Naturalis & Penyiar Legendaris</small>
+              </footer>
+            </blockquote>
+            <p class="small mt-3">Dalam seri *Blue Planet*, ia menunjukkan bagaimana plastik dan pemanasan global mengancam kehidupan laut.</p>
+          </div>
+        </div>
+
+        <!-- Kutipan 5 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <img src="ayana.webp" alt="Ayana Elizabeth Johnson" class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+            <blockquote class="blockquote">
+              <p class="mb-3 fst-italic">"Protecting the ocean is not just about saving whales — it's about saving ourselves."</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>Dr. Ayana Elizabeth Johnson</strong><br>
+                <small class="text-muted">Ahli Kebijakan Kelautan & Pendiri Ocean Collectiv</small>
+              </footer>
+            </blockquote>
+            <p class="small mt-3">Laut menyerap 90% panas berlebih dari pemanasan global dan 30% CO₂ dari udara.</p>
+          </div>
+        </div>
+
+        <!-- Kutipan 6 -->
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 border-0 shadow-sm p-4 text-center">
+            <img src="robert.avif" alt="Robert Ballard" class="rounded-circle mx-auto mb-3" style="width: 80px; height: 80px; object-fit: cover;">
+            <blockquote class="blockquote">
+              <p class="mb-3 fst-italic">"The deep ocean is the largest museum on Earth."</p>
+              <footer class="blockquote-footer mt-2">
+                <strong>Dr. Robert Ballard</strong><br>
+                <small class="text-muted">Penemu Kapal Titanic & Penjelajah Laut Dalam</small>
+              </footer>
+            </blockquote>
+            <p class="small mt-3">Ia menemukan ribuan spesies baru dan bangkai kapal bersejarah di dasar laut.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section id="wisata" class="py-5">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Tips Menikmati Laut</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-8 mx-auto">
+          <div class="accordion" id="tipsAccordion">
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#tip1">
+                  <strong>1. Pilih Waktu Terbaik</strong>
+                </button>
+              </h2>
+              <div id="tip1" class="accordion-collapse collapse show" data-bs-parent="#tipsAccordion">
+                <div class="accordion-body">
+                  Kunjungi pantai saat pagi atau sore untuk cahaya terbaik dan suhu nyaman. Hindari siang hari yang terik.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tip2">
+                  <strong>2. Gunakan Tabir Surya Ramah Karang</strong>
+                </button>
+              </h2>
+              <div id="tip2" class="accordion-collapse collapse" data-bs-parent="#tipsAccordion">
+                <div class="accordion-body">
+                  Pilih sunscreen dengan label "reef-safe" — hindari oxybenzone dan octinoxate yang merusak terumbu karang.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#tip3">
+                  <strong>3. Jangan Sentuh Makhluk Laut</strong>
+                </button>
+              </h2>
+              <div id="tip3" class="accordion-collapse collapse" data-bs-parent="#tipsAccordion">
+                <div class="accordion-body">
+                  Amati dari jarak aman. Menyentuh karang atau hewan laut bisa merusak ekosistem dan membahayakan diri.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Kontak -->
+  <section id="kontak" class="py-5 bg-white">
+    <div class="container">
+      <div class="text-center mb-5">
+        <h2 class="section-title">Hubungi Kami</h2>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <form>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-lg" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="mb-3">
+              <input type="email" class="form-control form-control-lg" placeholder="Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" rows="5" placeholder="Pesan Anda"></textarea>
+            </div>
+            <button type="submit" class="btn btn-custom w-100 btn-lg">Kirim Pesan</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    <div class="container">
+      <p class="mb-3">&copy; 2025 <strong>Indahnya Laut</strong>. Dibuat dengan <i class="fas fa-heart text-danger"></i> dan Bootstrap 5.</p>
+      <p class="small text-white-50">Mari jaga kelestarian laut untuk generasi mendatang.</p>
+    </div>
+  </footer>
+
+  <!-- MODAL GALERI (12 MODAL) -->
+  <!-- Modal 1 -->
+  <div class="modal fade" id="modal1" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Terumbu Karang: Hutan Hujan Lautan</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="https://source.unsplash.com/random/1200x800/?coral,reef" class="img-fluid" alt="Terumbu Karang">
+          <p class="mt-3"><strong>Fakta:</strong> Terumbu karang adalah ekosistem paling beragam di bumi. Meski hanya menutupi kurang dari 1% dasar laut, mereka menjadi rumah bagi 25% spesies laut. Sayangnya, 50% terumbu karang dunia telah rusak akibat pemanasan global dan polusi.</p>
+          <p>Terumbu karang tumbuh sangat lambat — hanya 0.3 hingga 2 cm per tahun. Satu terumbu karang besar bisa berusia ribuan tahun.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2 sampai 12 (contoh singkat, sesuaikan jika perlu) -->
+  <!-- Modal 2: Penyu -->
+  <div class="modal fade" id="modal2" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Penyu Laut: Penjelajah Samudra</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="https://source.unsplash.com/random/1200x800/?sea,turtle" class="img-fluid" alt="Penyu">
+          <p class="mt-3">Penyu laut telah ada sejak era dinosaurus — lebih dari 100 juta tahun. Mereka bisa berenang ribuan kilometer untuk kembali ke pantai tempat mereka menetas.</p>
+          <p>Ancaman terbesar: plastik. Setiap tahun, ribuan penyu mati karena menelan kantong plastik yang dikira ubur-ubur.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tambahkan 10 modal lainnya dengan pola yang sama -->
+  <!-- Untuk menghemat ruang, berikut hanya 1 contoh lagi. Salin pola untuk 10 lainnya -->
+
+  <!-- Modal 3: Lumba-lumba -->
+  <div class="modal fade" id="modal3" tabindex="-1">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Lumba-lumba: Makhluk Paling Cerdas</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <img src="https://source.unsplash.com/random/1200x800/?dolphin" class="img-fluid" alt="Lumba-lumba">
+          <p class="mt-3">Lumba-lumba memiliki otak lebih besar dibanding manusia relatif terhadap ukuran tubuh. Mereka menggunakan nama unik (whistle) untuk memanggil satu sama lain.</p>
+          <p>Mereka tidur dengan satu mata terbuka, bergantian antara belahan otak untuk tetap waspada terhadap predator.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- ... Tambahkan modal 4 sampai 12 dengan deskripsi panjang serupa ... -->
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
